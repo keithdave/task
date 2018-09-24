@@ -1,0 +1,59 @@
+<h1>List of Assets</h1>
+
+<table>
+  <tr>
+    <th>Name</th>   
+	
+	
+    <th>Describtion</th>
+    <th></th>
+  </tr>
+  <% @inventory_collection.each do |inventory| %>
+    <tr>
+      <td><%= inventory.name %></td>
+      <td><%= inventory.describtion %></td>
+      <td><%= link_to 'Show', inventory_path(inventory) %></td>
+	  <td><%= link_to 'Edit', edit_inventory_path(inventory) %></td>
+	  <td><%= link_to 'Destroy', inventory_path(inventory),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+	<% end %>
+	</table>
+	
+	<h2>ORDERED ASSETS</h2>
+<% @inventory_collection.first.demands.each do |demand| %>
+  <p>
+    <strong>Name:</strong>
+    <%= demand.name%>
+    
+    <strong>Quantity:</strong>
+    <%= demand.quantity %>
+  </p>
+  <p>
+  <%= link_to 'Destroy demand', [demand.inventory, demand],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+<% end %>
+ 
+<h2>ORDER AN ASSET:</h2>
+<%= form_with(url: inventory_demand_index_path(@inventory_collection.first), local: true) do |form| %>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name%>
+  </p>
+  <p>
+    <%= form.label :quantity %><br>
+    <%= form.text_area :quantity %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+ <% end %></br></br>
+<%= link_to 'NEW ASSET', new_inventory_path %>  |
+<%= link_to 'BACK', welcome_index_path %></br></br>
+ <%= link_to 'report', controller: 'report' %></br></br>
+ <%= link_to 'sale', controller: 'sale' %></br></br>
+ <%= link_to 'lend', controller: 'lend' %></br></br>
+

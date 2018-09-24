@@ -1,0 +1,57 @@
+<p>
+  <strong>Name:</strong>
+  <%= @inventory.name %>
+</p>
+ 
+<p>
+  <strong>Describtion:</strong>
+  <%= @inventory.describtion %>
+</p>
+ <p>
+  <strong>department_id:</strong>
+  <%= @inventory.department_id %>
+</p>
+
+<p>
+The department #<%= @inventory.department.id %> has the name <%= @inventory.department.name %>
+</p>
+
+<h2>features</h2>
+<% @inventory.features.each do |feature| %>
+  <p>
+   <%= feature.name%>
+   <%= feature.content%>
+	
+  </p>
+  <p>
+  <%= link_to 'Destroy feature', [feature.inventory, feature],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+
+<% end %>
+
+<h2>Add a Feature:</h2>
+<%= form_with(url: inventory_feature_index_path(@inventory), local: true) do |form| %>
+  <p>
+    <%= form.label :name%>
+    <%= form.text_field :name%>
+	
+	<%= form.label :content%>
+	<%= form.text_field :content%>
+	
+  </p>
+  
+   <p>
+ 
+    <%= form.submit
+	%>
+   </p>
+   
+<% end %></br>
+</br>
+ 
+
+
+<%= link_to 'EDIT', edit_inventory_path(@inventory) %> |
+<%= link_to 'BACK', inventory_index_path %>

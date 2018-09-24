@@ -1,0 +1,21 @@
+<p>
+  <strong>Name:</strong>
+  <%= @account.name %>
+</p>
+ 
+<p>
+  <strong>Role:</strong>
+  <%= @account.role %>
+</p>
+<p>
+  <strong>department_id:</strong>
+  <%= @account.department_id %>
+</p>
+<h1>List of all departments</h1>
+
+  <%= link_to @account.department.id, department_path(@account.department) %></br>
+
+
+<%= link_to 'BACK', account_index_path %>
+<%= link_to 'EDIT', edit_account_path(@account) %> |
+

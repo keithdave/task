@@ -1,0 +1,60 @@
+<html>
+<head>
+
+</head>
+<body>
+
+<center>
+<h1>Edit an Employee</h1>
+ 
+<%= form_with(model: @employee, local: true) do |form| %>
+ 
+  <% if @employee.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@employee.errors.count, "error") %> prohibited
+        this employee from being saved:
+      </h2>
+      <ul>
+        <% @employee.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+   <fieldset>
+   
+ 
+  <legend>FILL FORM</legend>
+ 
+  <p>
+    <%= form.label :Name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :Post%><br>
+    <%= form.text_area :post %>
+  </p>
+  <p>
+    <%= form.label :department_id%><br>
+    <%= form.text_field:department_id%>
+  </p>
+ 
+  
+ <center><p>
+ 
+    <%= form.submit %>
+  
+  </p>
+  </center>
+  </fieldset>
+
+ </form> </center>
+
+
+</body>
+ 
+<% end %>
+ 
+<%= link_to 'BACK',employee_path %>

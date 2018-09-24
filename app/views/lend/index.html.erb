@@ -1,0 +1,29 @@
+<h1>List of all lend</h1>
+
+<table>
+  <tr>
+    <th>asset_name</th>
+    <th>cost</th>
+    <th></th>
+  </tr>
+ 
+  <% @lend.each do |lend| %>
+    <tr>
+      <td><%= lend.asset_name %></td>
+      <td><%= lend.cost%></td>
+      <td><%= link_to 'Show', lend_path(lend) %></td>
+	  <td><%= link_to 'Edit', edit_lend_path(lend) %></td>
+	  <td><%= link_to 'Destroy', lend_path(lend),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %></br>
+</table>
+
+</br>
+
+<%= link_to 'NEW LEND', new_lend_path %>|
+<%= link_to 'BACK', inventory_index_path %>
+
+
+

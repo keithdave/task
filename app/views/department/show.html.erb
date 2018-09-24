@@ -1,0 +1,23 @@
+
+
+<h1>List of all assets</h1>
+
+  <% @department.inventory.each do |inventory| %></br>
+  <%= link_to inventory.name, inventory_path(inventory) %></br>
+  
+  <p>
+  <strong>name:</strong>
+  <%= @department.name %>
+</p>
+ 
+<p>
+  <strong>functions:</strong>
+  <%= @department.functions %>
+</p>
+<% end %></br>
+</br>
+
+
+<%= link_to 'EDIT', edit_department_path(@department) %> | 
+<%= link_to 'BACK', department_index_path %>                                                                                                                                                                                                                                                                                                                                                        
+    

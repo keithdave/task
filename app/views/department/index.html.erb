@@ -1,0 +1,30 @@
+
+<h1>Listing departments</h1>
+
+ 
+<table>
+  <tr>
+    <th>name</th>
+    <th>functions</th>
+	<th>id</th>
+    <th></th>
+  </tr>
+ 
+  <% @department.each do |department| %>
+    <tr>
+      <td><%= department.name %></td>
+      <td><%= department.functions %></td>
+	  <td><%= department.id %></td>
+	  <td><%= link_to 'Show', department_path(department) %></td>
+	   <td><%= link_to 'Edit', edit_department_path(department) %></td>
+	   <td><%= link_to 'Destroy', department_path(department),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table></br></br></br>
+<%= link_to 'New department', new_department_path %></br>
+</br>
+<%= link_to 'BACK', welcome_index_path %></br></br>
+<%= link_to 'ASSETS', controller: 'inventory' %></br></br>
+<%= link_to 'EMPLOYEES', controller: 'employee' %></br></br>

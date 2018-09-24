@@ -1,0 +1,30 @@
+<p>
+  <strong>Asset_name:</strong>
+  <%= @lend.asset_name%>
+</p>
+ 
+<p>
+  <strong>cost:</strong>
+  <%= @lend.cost%>
+</p>
+ 
+<h2>carry on a  lend:</h2>
+<%= form_with(url: lend_index_path(@lend), local: true) do |form| %>
+  <p>
+    <%= form.label :asset_name%><br>
+    <%= form.text_field :asset_name%>
+  </p>
+  <p>
+    <%= form.label :cost %><br>
+    <%= form.text_area :cost	%>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %></br>
+</br>
+ 
+<%= link_to 'EDIT', edit_lend_path(@lend) %> |
+<%= link_to 'BACK', lend_index_path %>
+
+

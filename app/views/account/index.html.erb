@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+<h1>List of all Accounts</h1>
+
+ <table class="table table-hover">
+
+  <tr>
+    <th>Name</th>
+    <th>Role</th>
+	<th>department_id</th>
+    <th></th>
+  </tr>
+ 
+  <% @account.each do |account| %>
+    <tr>
+      <td><%= account.name %></td>
+      <td><%= account.role%></td>
+	  <td><%= account.department_id%></td>
+      <td><%= link_to 'Show', account_path(account) %></td>
+	  <td><%= link_to 'Edit', edit_account_path(account) %></td>
+	  <td><%= link_to 'Destroy', account_path(account),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %></br>
+</table>
+</html>
+
+</br>
+<%= link_to 'New account', new_account_path %> |
+<%= link_to 'Back', welcome_index_path %>

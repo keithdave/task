@@ -1,0 +1,27 @@
+<h1>List of all sales</h1>
+
+<table>
+  <tr>
+    <th>asset_name</th>
+    <th>amount</th>
+    <th></th>
+  </tr>
+ 
+  <% @sale.each do |sale| %>
+    <tr>
+      <td><%= sale.asset_name %></td>
+      <td><%= sale.amount%></td>
+      <td><%= link_to 'Show', sale_path(sale) %></td>
+	  <td><%= link_to 'Edit', edit_sale_path(sale) %></td>
+	  <td><%= link_to 'Destroy', sale_path(sale),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %>
+</table></br>
+
+</br>
+<%= link_to 'NEW SALE', new_sale_path %>|
+<%= link_to 'BACK', inventory_index_path %>
+
+

@@ -1,0 +1,28 @@
+<p>
+  <strong>Title:</strong>
+  <%= @report.title %>
+</p>
+ 
+<p>
+  <strong>Body:</strong>
+  <%= @report.body %>
+</p>
+ 
+<h2>write a report:</h2>
+<%= form_with(url: report_index_path(@report), local: true) do |form| %>
+  <p>
+    <%= form.label :title %><br>
+    <%= form.text_field :title %>
+  </p>
+  <p>
+    <%= form.label :body %><br>
+    <%= form.text_area :body %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %></br>
+</br>
+ 
+<%= link_to 'EDIT', edit_report_path(@report) %> |
+<%= link_to 'BACK', report_index_path %>

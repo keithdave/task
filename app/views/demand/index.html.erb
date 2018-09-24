@@ -1,0 +1,19 @@
+<h2>ORDERED ASSETS</h2>
+
+  <p>
+    <strong>Name:</strong>
+    <%= demand.name%>
+   </p>
+   <p>
+    <strong>Quantity:</strong>
+    <%= demand.quantity %>
+  <p>
+  <%= link_to 'Destroy demand', [demand.inventory, demand],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>
+</br>
+</br>
+
+<%= link_to 'NEW ORDER', new_demand_path %>  |
+<%= link_to 'BACK', demand_index_path %>

@@ -1,0 +1,29 @@
+<p>
+  <strong>Asset_name:</strong>
+  <%= @sale.asset_name%>
+</p>
+ 
+<p>
+  <strong>amount:</strong>
+  <%= @sale.amount%>
+</p>
+ 
+<h2>carry on a  sale:</h2>
+<%= form_with(url: sale_index_path(@sale), local: true) do |form| %>
+  <p>
+    <%= form.label :asset_name%><br>
+    <%= form.text_field :asset_name%>
+  </p>
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.text_field:amount %>
+  </p>
+  <p>
+    <%= form.submit %>
+  </p>
+<% end %></br>
+</br>
+ 
+<%= link_to 'EDIT', edit_sale_path(@sale) %> |
+<%= link_to 'BACK', sale_index_path %>
+

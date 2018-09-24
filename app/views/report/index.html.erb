@@ -1,0 +1,27 @@
+<h1>List of all reports</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>body</th>
+    <th></th>
+  </tr>
+ 
+  <% @report.each do |report| %>
+    <tr>
+      <td><%= report.title %></td>
+      <td><%= report.body%></td>
+      <td><%= link_to 'Show', report_path(report) %></td>
+	  <td><%= link_to 'Edit', edit_report_path(report) %></td>
+	  <td><%= link_to 'Destroy', report_path(report),
+              method: :delete,
+              data: { confirm: 'Are you sure?' } %></td>
+    </tr>
+  <% end %></br>
+</table>
+
+</br>
+
+<%= link_to 'NEW REPORT', new_report_path %>|
+<%= link_to 'BACK', inventory_index_path %>
+

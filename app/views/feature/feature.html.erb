@@ -1,0 +1,14 @@
+<p>
+   <%= feature.name %>
+   <%= feature.content %>
+</p>
+<p>
+    <%= form.submit %>
+</p>
+<% end %>
+ 
+<p>
+  <%= link_to 'Destroy feature', [feature.inventory, feature],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+</p>

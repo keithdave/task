@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<center>
+<h1>Edit lend</h1>
+ 
+<%= form_with(model: @lend, local: true) do |form| %>
+ 
+  <% if @lend.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@lend.errors.count, "error") %> prohibited
+        this lend from being saved:
+      </h2>
+      <ul>
+        <% @lend.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+   
+ 
+  <legend>FILL FORM</legend>
+ 
+  <p>
+    <%= form.label :asset_name%><br>
+    <%= form.text_field :asset_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :cost %><br>
+    <%= form.text_area :cost%>
+  </p>
+  
+  
+ <center><p>
+ 
+    <%= form.submit %>
+  
+  </p>
+  </center>
+  </fieldset>
+
+ </form> </center>
+
+
+</body>
+ 
+<% end %>
+ 
+<%= link_to 'BACK', lend_path %>
+
+
+
+

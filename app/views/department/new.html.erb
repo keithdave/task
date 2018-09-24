@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<center>
+<%= form_with scope: :department, url:department_index_path, local: true do |form| %>
+ 
+   
+  <% if @department.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@department.errors.count, "error") %> prohibited
+        this department from being saved:
+      </h2>
+      <ul>
+        <% @department.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+   
+ 
+  <legend>FILL FORM</legend>
+  <p>
+    <%= form.label :name %><br>
+    <%= form.text_field :name %>
+  </p>
+ 
+  <p>
+    <%= form.label :functions %><br>
+    <%= form.text_area :functions %>
+  </p>
+ 
+ <center><p>
+ 
+    <%= form.submit %>
+  
+  </p>
+  </center>
+  </fieldset>
+
+ </form> </center>
+
+
+</body>
+  
+<% end %>
+<%= link_to 'BACK', department_index_path %>

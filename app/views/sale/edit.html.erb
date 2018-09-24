@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+</head>
+<body>
+
+<center>
+<h1>Edit sale</h1>
+ 
+<%= form_with(model: @sale, local: true) do |form| %>
+ 
+  <% if @sale.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@sale.errors.count, "error") %> prohibited
+        this sale from being saved:
+      </h2>
+      <ul>
+        <% @sale.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <fieldset>
+   
+ 
+  <legend>FILL FORM</legend>
+ 
+  <p>
+    <%= form.label :asset_name%><br>
+    <%= form.text_field :asset_name %>
+  </p>
+ 
+  <p>
+    <%= form.label :amount %><br>
+    <%= form.text_area :amount%>
+  </p>
+  
+  
+ <center><p>
+ 
+    <%= form.submit %>
+  
+  </p>
+  </center>
+  </fieldset>
+
+ </form> </center>
+
+
+</body>
+ 
+<% end %>
+ 
+<%= link_to 'BACK', report_path %>
+
+
+
